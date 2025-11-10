@@ -14,8 +14,10 @@ Soleil (formerly SGT Harmony Generator) is a three-voice harmony generator audio
 ## Git Status
 
 **Branch:** main
-**Last Commit:** d759708 - "Rebrand: Soleil v1.0 + Complete Project Reorganization"
-**Working Tree:** Clean (after session commit)
+**Last Commit:** 776f9da - "chore: Update .gitignore for build artifacts and certificates"
+**Previous Commit:** 678760f - "feat: Complete macOS certification infrastructure + v1.1 beta distribution"
+**Working Tree:** Clean
+**Status:** 2 commits ahead of origin/main (ready to push)
 
 ## Session Handoff
 
