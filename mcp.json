@@ -1,0 +1,8 @@
+{
+  "servers": [
+    {
+      "name": "github",
+      "uri": "http://localhost:8080"
+    }
+  ]
+}
