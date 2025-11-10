@@ -16,4 +16,12 @@ faust.*/
 
 # Build directories
 build/
+builds/
 dist/
+
+# Distribution packages
+*.zip
+
+# Certificates (sensitive)
+*.cer
+*.p12
