@@ -121,23 +121,34 @@ Status:    ✅ VERIFIED
 
 ## 🚀 Next Steps
 
-### Immediate (Next Session)
-1. **Build GUI Application**
-   ```bash
-   faust2jaqt -midi SGT_HarmonyGenerator_v1.8.dsp
-   ```
+### ✅ Completed (Session 2 - 2025-11-09 20:25)
+1. **Build GUI Application** ✅
+   - Built with: `faust2caqt -midi SGT_HarmonyGenerator_v1.8.dsp`
+   - Output: `SGT_HarmonyGenerator_v1.8.app`
+   - Status: Working, launched successfully
+   - Audio Backend: CoreAudio (macOS native)
+   - Dependencies installed: pkg-config, JACK, Qt5
 
-2. **Export Plugins**
-   ```bash
-   faust2vst SGT_HarmonyGenerator_v1.8.dsp
-   faust2au SGT_HarmonyGenerator_v1.8.dsp
-   faust2lv2 SGT_HarmonyGenerator_v1.8.dsp
-   ```
+2. **Export Plugins** ⚠️ Partially Failed
+   - VST: ❌ Missing VST SDK at `/usr/local/include/vstsdk2.4/`
+   - AU: ❌ faust2au has hardcoded non-Homebrew paths
+   - LV2: ❌ Missing faust-lv2 library files
+   - See BUILD_NOTES.md for details
 
-3. **Test in DAW**
-   - Load plugin in Ableton/Logic/Reaper
+### Immediate (Current Session)
+1. **Test GUI Application**
+   ```bash
+   open SGT_HarmonyGenerator_v1.8.app
+   ```
    - Test MIDI preset switching (C0-B0 keys)
-   - Verify real-time performance
+   - Verify harmony generation accuracy
+   - Measure latency and performance
+   - Test with various audio sources
+
+2. **Fix Plugin Export (Optional)**
+   - Download and install VST SDK for faust2vst
+   - Fix faust2au script paths for Homebrew
+   - Install faust-lv2 library for faust2lv2
 
 ### Future Enhancements
 - [ ] Add polyphonic mode (4-8 voices)
