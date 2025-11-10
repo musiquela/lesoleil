@@ -1,0 +1,19 @@
+# Build artifacts
+*.app/
+*.vst/
+*.component/
+*.lv2/
+faust.*/
+
+# Compiled files
+*.o
+*.a
+*.dylib
+
+# macOS
+.DS_Store
+*.dSYM/
+
+# Build directories
+build/
+dist/
