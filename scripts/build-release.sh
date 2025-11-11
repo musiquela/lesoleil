@@ -20,8 +20,8 @@ BUILDS_DIR="$PROJECT_ROOT/builds/apps"
 DIST_DIR="$PROJECT_ROOT/dist"
 
 # Default values
-DSP_FILE="Soleil_v1.1.dsp"
-VERSION="1.1"
+DSP_FILE="Soleil_v1.2.dsp"
+VERSION="1.2"
 SIGN_CODE=true
 NOTARIZE=false
 FAUST_BUILDER="faust2caqt"
@@ -152,8 +152,14 @@ echo ""
 cd "$PROJECT_ROOT"
 START_TIME=$(date +%s)
 
-# Run Faust builder
-if $FAUST_BUILDER "$DSP_FILE"; then
+# Run Faust builder with custom architecture for proper window sizing
+if [ "$FAUST_BUILDER" = "faust2caqt" ] && [ -f "$PROJECT_ROOT/ca-qt-custom.cpp" ]; then
+    $FAUST_BUILDER -a "$PROJECT_ROOT/ca-qt-custom.cpp" "$DSP_FILE"
+else
+    $FAUST_BUILDER "$DSP_FILE"
+fi
+
+if [ $? -eq 0 ]; then
     END_TIME=$(date +%s)
     BUILD_TIME=$((END_TIME - START_TIME))
     echo ""
