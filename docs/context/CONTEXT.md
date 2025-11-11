@@ -1,6 +1,6 @@
 # Soleil Project Context
 
-**Last Updated:** 2025-11-10 10:47 PST
+**Last Updated:** 2025-11-10 14:32 PST
 **Session Status:** ✅ COMPLETE
 
 ## Project Overview
@@ -14,61 +14,50 @@ Soleil (formerly SGT Harmony Generator) is a three-voice harmony generator audio
 ## Git Status
 
 **Branch:** main
-**Last Commit:** 776f9da - "chore: Update .gitignore for build artifacts and certificates"
-**Previous Commit:** 678760f - "feat: Complete macOS certification infrastructure + v1.1 beta distribution"
-**Working Tree:** Clean
-**Status:** 2 commits ahead of origin/main (ready to push)
+**Last Commit:** 10789d3 - "docs: Update /handoff command to include push step"
+**Previous Commit:** 065f7d8 - "docs: Update session handoff (Session 1 complete)"
+**Working Tree:** Modified (README.md updated, pedal mockup created)
+**Status:** Up to date with origin/main
 
 ## Session Handoff
 
-### Session Accomplishments (2025-11-10)
+### Session Accomplishments (2025-11-10 Session 2)
 
-This session focused on **code signing and distribution** for macOS beta release:
+This session focused on **brand messaging and hardware design mockup**:
 
-1. **Complete Certification Infrastructure Created:**
-   - `Soleil.entitlements` - Audio app permissions (JIT, audio input, library validation)
-   - `scripts/install-certificates.sh` - Developer ID certificate installation
-   - `scripts/prepare-qt-app.sh` - Qt plugin cleanup before signing
-   - `scripts/sign-bundle-components.sh` - Individual component signing
-   - `scripts/sign-app.sh` - Main signing workflow with ad-hoc fallback
-   - `scripts/notarize.sh` - Apple notarization submission
-   - `scripts/build-release.sh` - Complete automated build pipeline
-   - `scripts/README.md` - Comprehensive documentation
+1. **Product Description Refinement:**
+   - Crafted sophisticated marketing copy for performing musicians
+   - Emphasized precision, control, and musical intent over randomization
+   - Highlighted scene-based preset organization and MIDI/footswitch control
+   - Added inspiration from Josh Johnson and Sam Gendel's live pitch-shifting
+   - Updated README.md with final brand messaging ("MEET SOLEIL")
 
-2. **Developer ID Signing Investigation:**
-   - Identified macOS 26.2 beta (25C5031i) bug: `errSecInternalComponent`
-   - Confirmed Phil.vst3 also uses ad-hoc signing (same limitation)
-   - Verified certificates installed correctly, private key present
-   - Root cause: Known Apple bug in macOS beta versions
-   - Solution: Ad-hoc signing works perfectly for beta distribution
+2. **Hardware Pedal Design Mockup:**
+   - Created SVG mockup: `docs/soleil-pedal-mockup.svg`
+   - Design features:
+     - OLED display showing scene name and harmony intervals (H1 & H2)
+     - Three navigation buttons below OLED (Left/OK/Right)
+     - Six footswitches: Scene ▲ | Preset 1-4 | Scene ▼
+     - Dark metallic finish with gold "SOLEIL" branding
+     - Clean layout without visible input/output jacks
+   - Purpose: Visual reference for future hardware development
 
-3. **Fresh Build with Proper Qt Environment:**
-   - Configured Qt@5 from Homebrew
-   - Built Soleil_v1.1.app with faust2caqt
-   - Signed with ad-hoc (bypasses macOS beta bug)
-   - App location: `builds/apps/Soleil_v1.1.app`
+3. **Brand Identity Clarification:**
+   - Positioned Soleil as a tool for musicians who understand music theory
+   - Emphasized scene-based workflow for live performance and DAW automation
+   - Tagline: "Three voices. Your intervals. Total recall at your fingertips… or toe-tips."
 
-4. **Beta Distribution Package:**
-   - Created `Soleil-v1.1-Beta.zip` (46 MB)
-   - Included `README-FOR-BETA-TESTERS.txt` with installation instructions
-   - Ready for distribution to beta testers
-   - Instructions explain right-click → Open for first launch
+### Key Messaging Points
 
-5. **Documentation:**
-   - `CERTIFICATION_STATUS.md` - Documents macOS beta bug and workaround
-   - Session handoff infrastructure established
+**Target Audience:** Performing musicians who need precise harmonic control, not algorithmic guesswork.
 
-### Key Technical Findings
+**Core Features:**
+- Three-voice harmony with exact interval control
+- Scene-based preset organization
+- MIDI and footswitch navigation
+- Dual format: Plugin (DAW) and hardware pedal (stage)
 
-**macOS Beta Bug:** macOS 26.2 (25C5031i) has a known bug preventing Developer ID code signing:
-```
-Error: errSecInternalComponent
-Warning: unable to build chain to self-signed root for signer
-```
-
-**Workaround:** Ad-hoc signing (`codesign --sign -`) works perfectly and allows distribution. Users must right-click → Open on first launch to bypass Gatekeeper.
-
-**Certificate Chain:** Developer ID certificates and private keys are correctly installed in login keychain. The issue is purely an OS bug, not a configuration problem.
+**Brand Voice:** Direct, intelligent, focused on solving a specific problem that doesn't exist in current market offerings.
 
 ### Active Work
 
@@ -82,43 +71,40 @@ Warning: unable to build chain to self-signed root for signer
 
 ### Recently Modified Files
 
-**Created This Session:**
+**Modified This Session:**
 ```
-scripts/
-├── install-certificates.sh
-├── prepare-qt-app.sh
-├── sign-bundle-components.sh
-├── sign-app.sh
-├── notarize.sh
-├── build-release.sh
-└── README.md
-
-Soleil.entitlements
-CERTIFICATION_STATUS.md
-README-FOR-BETA-TESTERS.txt
-Soleil_v1.1.dsp
-docs/context/CONTEXT.md (this file)
+README.md                         # Updated with "MEET SOLEIL" brand messaging
+docs/soleil-pedal-mockup.svg      # NEW: Hardware pedal design mockup
+docs/context/CONTEXT.md           # This file - session 2 handoff
 ```
 
-**Not Committed (build artifacts/binaries):**
-- `Soleil-v1.1-Beta.zip` (46 MB distribution package)
-- `builds/` (build outputs)
-- `AppleWWDRCAG3.cer`, `DeveloperIDG2CA.cer` (certificates)
+**Previous Session (Session 1):**
+```
+scripts/                          # Complete certification infrastructure
+Soleil.entitlements              # macOS entitlements
+CERTIFICATION_STATUS.md          # Signing status documentation
+README-FOR-BETA-TESTERS.txt      # End-user instructions
+Soleil_v1.1.dsp                  # Current DSP implementation
+```
 
 ### Next Session
 
 **Immediate Tasks:**
-- None - beta distribution package is complete and ready
+1. Implement scene-based preset system in DSP code
+2. Add MIDI CC mapping for scene/preset switching
+3. Design preset data structure (scenes with 4 presets each)
 
-**Future Enhancements:**
-1. Developer ID signing (when macOS beta bug is fixed or on stable Mac)
-2. Apple notarization for wider distribution
-3. Consider VST3/AU builds alongside standalone app
-4. Automated testing pipeline
+**Future Development:**
+1. Scene management UI/UX
+2. Preset save/load functionality
+3. MIDI learn for footswitch mapping
+4. Hardware pedal prototyping (based on mockup design)
+5. VST3/AU builds alongside standalone app
+6. Developer ID signing (when macOS beta bug is fixed)
 
 **Known Issues:**
+- Current v1.1 has basic interval selection but no scene/preset infrastructure
 - Developer ID signing blocked by macOS 26.2 beta bug (documented in CERTIFICATION_STATUS.md)
-- Solution: Use stable macOS for production signing, or wait for beta bug fix
 
 ### Project Structure
 
@@ -175,6 +161,16 @@ soleil/
 ---
 
 ## Session History
+
+### Session 2: 2025-11-10 - Brand Messaging & Hardware Design ✅
+- Developed sophisticated product description for performing musicians
+- Created hardware pedal mockup (SVG) with OLED, navigation buttons, and 6 footswitches
+- Updated README.md with "MEET SOLEIL" brand messaging
+- Clarified target audience: musicians who understand music theory and need precision
+- Established brand voice: direct, intelligent, problem-solving focused
+- Designed pedal layout: Scene ▲/▼ + 4 preset buttons
+
+**Key Outcome:** Clear brand identity and visual reference for future hardware development.
 
 ### Session 1: 2025-11-10 - Code Signing & Beta Distribution ✅
 - Examined Phil repository certification setup (reference implementation)

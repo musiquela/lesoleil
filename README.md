@@ -1,5 +1,19 @@
 # Soleil - Harmony Generator
 
+## MEET SOLEIL.
+
+Most harmony tools try to be everything to everyone. Soleil is for individuals.
+
+If you need precise three-voice harmony that you control, this is your tool. Build custom voicings based on the intervals you choose. Organize them into scenes that match your setlist or your session structure and easily navigate between groupings of preset harmonies using MIDI or footswitches.
+
+Inspired by the live performance pitch-shifting of jazz pioneers like Josh Johnson and Sam Gendel, but yearning for more versatility and customization, Soleil isn't a one-size-fits-all solution. It's a meticulous instrument for performing musicians who need exact harmonic control—on stage and in the studio.
+
+If you've been searching for a way to architect your harmony with the same precision you bring to your playing, you've found it.
+
+Three voices. Your intervals. Total recall at your fingertips… or toe-tips. You decide.
+
+---
+
 A real-time 3-voice harmony generator built with Faust.
 
 ## Features
